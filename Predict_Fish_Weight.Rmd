@@ -110,9 +110,29 @@ The model using all 5 variables is the best model.
 By using the leaps method, we were able to focus on maximizing the Adjusted R-squared value. This approach identifies the highest Adjusted R-squared values for models with 1, 2, 3, 4, and 5 variables for pike. The results show that L1 and L3 are the best two regressors, yielding the highest Adjusted R-squared value, making it the optimal two-regression model.  
 
 ## Roach
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
 
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomleft",main="Adjusted R^2")
+```
+The best model seems to be the one with two variables, including L3 and W, making it the top-performing two-regressor model.  
+ 
 ### Best Models
-
+```{r}
+which.max(summary.out$adjr2)
+```
+This demonstrates that the best model, based on the leaps method targeting the Adjusted R-squared value, is the one with two variables: L3 and W. 
 ### Best Two regressor model
+
 
 ## Final Summary Statements
