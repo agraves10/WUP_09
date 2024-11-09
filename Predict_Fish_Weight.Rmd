@@ -101,8 +101,13 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
 The best model appears to be the model including all L1, L2, L3, H, and W. While the best two regression model appears to be the model including L1 and L3.  
 
 ### Best Models
+```{r}
+which.max(summary.out$adjr2)
+```
+The model using all 5 variables is the best model.  
 
 ### Best Two regressor model
+By using the leaps method, we were able to focus on maximizing the Adjusted R-squared value. This approach identifies the highest Adjusted R-squared values for models with 1, 2, 3, 4, and 5 variables for pike. The results show that L1 and L3 are the best two regressors, yielding the highest Adjusted R-squared value, making it the optimal two-regression model.  
 
 ## Roach
 
