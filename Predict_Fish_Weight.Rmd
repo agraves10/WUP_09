@@ -45,7 +45,8 @@ Smelt <- select(Smelt, -Species)
 Whitefish <- filter(fish, Species == "Whitefish")
 Whitefish <- select(Whitefish, -Species) 
 ```
-Use leaps 3 times for each fish.
+Use leaps 3 times for each fish. 
+
 # For each of the three species of fish listed below, determine the best regression model and also the best 2 element regression model. Use the BestSubset Regression helper file.
 
 
@@ -67,7 +68,13 @@ library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottom",main="Adjusted R^2")
 ```
 
+These graphs demonstrates  that the Height and Width variables form the best model, which is also the top-performing two-variable model, a conclusion that can be verified through code.  
+
 ### Best Models
+```{r}
+which.max(summary.out$adjr2)
+```
+This shows that the model including H and W is the best model to express the data when looking at the Adjusted R-squared value.
 
 ### Best Two regressor model
 
