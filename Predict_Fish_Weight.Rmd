@@ -74,10 +74,13 @@ These graphs demonstrates  that the Height and Width variables form the best mod
 ```{r}
 which.max(summary.out$adjr2)
 ```
-This shows that the model including H and W is the best model to express the data when looking at the Adjusted R-squared value.
+This shows that the model including H and W is the best model to express the data when looking at the Adjusted R-squared value.  
 
 ### Best Two regressor model
-
+```{r}
+summary.out$which[2,]
+```
+The best model for the perch fish is the one that includes Height and Width. This data summary confirms that this model, which incorporates H and W, has the highest Adjusted R-squared value, making it the top-performing two-variable regression model.  
 
 ## Pike
 
